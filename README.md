@@ -1,10 +1,10 @@
 # pdfbook2 - transform pdf files to booklets
 
-    pdfbook2 v1.3
+    pdfbook2 v1.3 (https://github.com/jenom/pdfbook2)
     (c) 2015 - 2019 Johannes Neumann (http://www.neumannjo.de)
     licensed under GPLv3 (http://www.gnu.org/licenses/gpl-3.0)
     based on pdfbook by David Firth with help from Marco Pessotto
-
+    
 ## DESCRIPTION
 
     Create print-ready PDF files from some INPUT PDF files for booklet printing.
