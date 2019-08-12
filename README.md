@@ -114,9 +114,9 @@
 
 ## CHANGELOG
 
-	1.3 2019/08/12
-	
-		-	removed wait after popen to prevent deadlock with very large documents
+    1.3 2019/08/12
+
+        -    removed wait after popen to prevent deadlock with very large documents
 
     1.2 2015/06/03
         

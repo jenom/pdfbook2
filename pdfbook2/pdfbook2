@@ -171,7 +171,7 @@ if __name__ == "__main__":
     #------------------------------------------------------------ useful strings
     usageString = "Usage: %prog [options] file1 [file2 ...]"
     versionString = """
-    %prog v1.2
+    %prog v1.3
     (c) 2015 Johannes Neumann (http://www.neumannjo.de)
     licensed under GPLv3 (http://www.gnu.org/licenses/gpl-3.0)
     based on pdfbook by David Firth with help from Marco Pessotto\n"""
