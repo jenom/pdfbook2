@@ -1,8 +1,8 @@
 pdfbook2 - transform pdf files to booklets
 ==========================================
 
-    pdfbook2 v1.2
-    (c) 2015 Johannes Neumann (http://www.neumannjo.de)
+    pdfbook2 v1.3
+    (c) 2015 - 2019 Johannes Neumann (http://www.neumannjo.de)
     licensed under GPLv3 (http://www.gnu.org/licenses/gpl-3.0)
     based on pdfbook by David Firth with help from Marco Pessotto
 
@@ -114,6 +114,10 @@ OPTIONS
                 Resolution used by ghostscript in bp (default: 72)
 
 CHANGELOG
+
+	1.3 2019/08/12
+	
+		-	removed wait after popen to prevent deadlock with very large documents
 
     1.2 2015/06/03
         

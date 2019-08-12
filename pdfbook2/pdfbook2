@@ -47,7 +47,6 @@ def booklify( name, opts ):
                                name, tmpFile],
                              stdout = subprocess.PIPE,
                              stderr = subprocess.PIPE )
-        p.wait()
         out, err = p.communicate()
         if len( err ) != 0:
             print err
@@ -121,7 +120,6 @@ def booklify( name, opts ):
         p = subprocess.Popen( ["kpsewhich", "everyshi.sty"],
                          stdout = subprocess.PIPE,
                          stderr = subprocess.PIPE )
-        p.wait()
         out, err = p.communicate()
         if len( out ) == 0:
             print "\n\nABORT: The everyshi.sty latex package is needed for short-edge."
@@ -131,9 +129,8 @@ def booklify( name, opts ):
             pdfJamCallList.append( r"\usepackage{everyshi}\makeatletter\EveryShipout{\ifodd\c@page\pdfpageattr{/Rotate 180}\fi}\makeatother" )
 
     # run call to pdfJam to make booklet
-    p = subprocess.Popen( pdfJamCallList,
-                         stdout = subprocess.PIPE,
-                         stderr = subprocess.PIPE )
+    with open(os.devnull, 'w') as fp:
+        p = subprocess.Popen( pdfJamCallList, stderr = fp )
     p.wait()
 
     #-------------------------------------------- move file and remove temp file
