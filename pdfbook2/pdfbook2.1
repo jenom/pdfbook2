@@ -1,0 +1,121 @@
+.TH pdfbook2 1 "June 3, 2015" "" "pdfbook2 - transform pdf files to booklets"
+
+.SH NAME
+pdfbook2 \- transform pdf files into booklets for double-sided printing
+
+.SH SYNOPSIS
+\fBpdfbook2\fR [ \fIoptions\fR ] \fIINPUT\fR [ \fIINPUT\fR, ...]
+
+.SH DESCRIPTION
+Create print-ready PDF files from some \fIINPUT\fR PDF files for booklet printing. The resulting files need to be printed in landscape/long edge double sided printing. The default paper format depends on the locale and is choosen by pdfjam. It can be set with the --paper option. 
+.PP
+Before the pdf is composed the \fIINPUT\fR file is cropped to the relevant area in order to discard unnecessary white spaces. In this process, all pages are cropped to the same dimensions. Extra margins can be defined at the edges of the booklet and in the middle where the binding occurs.
+.PP
+The \fIOUTPUT\fR is written to \fIINPUT\fR-book.pdf. Existing files will be overwritten. All input files are processed seperatly.
+
+.SH EXAMPLE
+To simply \fBcreate a booklet\fR from input.pdf you can use
+.PP
+.nf
+.RS
+pdfbook2 input.pdf
+.RE
+.fi
+.PP
+to create input-book.pdf. To select a special \fBtype of paper\fR you can do
+.PP
+.nf
+.RS
+pdfbook2 --paper=letter input.pdf
+.RE
+.fi
+.PP
+for letter or
+.PP
+.nf
+.RS
+pdfbook2 --paper=a4paper input.pdf
+.RE
+.fi
+.PP
+for standard A4. To increase the \fBinner margin for binding\fR use
+.PP
+.nf
+.RS
+pdfbook2 --inner-margin=200 input.pdf
+.RE
+.fi
+.PP
+to increase the default value of 150. You can submit \fBmultiple files\fR to the 
+script for processing like
+.PP
+.nf
+.RS
+pdfbook2 input1.pdf input2.pdf
+.RE
+.fi
+.PP
+which will result in input1-book.pdf and input2-book.pdf.
+
+.SH OPTIONS
+.TP  
+.BR \-\-version
+show program's version number and exit
+.TP  
+.BR -h ", " --help
+show help message and exit
+
+.SS GENERAL
+.TP  
+.BR -p ", " --paper = \fISTR\fR
+Format of the output paper dimensions as latex keyword (e.g. a4paper, letterpaper, legalpaper, ...)
+.TP  
+.BR -s ", " --short-edge
+Format the booklet for short-edge double-sided printing
+.TP  
+.BR -n ", " --no-crop
+Prevent the cropping to the content area
+
+.SS MARGINS
+.TP  
+.BR -o ", " --outer-margin = \fIINT\fR
+Defines the outer margin in the booklet (default: 40)
+.TP  
+.BR -i ", " --inner-margin = \fIINT\fR
+Defines the inner margin between the pages in the booklet (default: 150)
+.TP  
+.BR -t ", " --top-margin = \fIINT\fR
+Defines the top margin in the booklet (default: 30)
+.TP  
+.BR -b ", " --bottom-margin = \fIINT\fR
+Defines the bottom margin in the booklet (default: 30)
+
+.SS ADVANCED
+.TP  
+.BR --signature = \fIINT\fR
+Define the signature for the booklet handed to pdfjam, needs to be multiple of 4 (default: 4)
+.TP  
+.BR --signature* = \fIINT\fR
+Same as --signature
+.TP  
+.BR --resolution = \fIINT\fR
+Resolution used by ghostscript in bp (default: 72)
+
+.SH "SEE ALSO"
+.BR pdfbook (1),
+.BR pdfjam (1),
+.BR pdfcrop (1)
+
+.SH ABOUT
+pdfbook2 v1.2
+.br
+(c) 2015 Johannes Neumann (http://www.neumannjo.de)
+.br
+licensed under GPLv3 (http://www.gnu.org/licenses/gpl-3.0)
+.br
+based on pdfbook by David Firth with help from Marco Pessotto
+
+.SH LICENSE
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free  Software Foundation, either version 3 of the License, or (at your option)  any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for  more details. You should have received a copy of the GNU General Public  License along with this program. If not, see <http://www.gnu.org/licenses/>.
