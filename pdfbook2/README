@@ -2,7 +2,7 @@ pdfbook2 - transform pdf files to booklets
 ==========================================
 
     pdfbook2 v1.3 (https://github.com/jenom/pdfbook2)
-    (c) 2015 - 2019 Johannes Neumann (http://www.neumannjo.de)
+    (c) 2015 - 2020 Johannes Neumann (http://www.neumannjo.de)
     licensed under GPLv3 (http://www.gnu.org/licenses/gpl-3.0)
     based on pdfbook by David Firth with help from Marco Pessotto
 
@@ -45,7 +45,7 @@ INSTALLATION
     
 REQUIREMENTS
 
-    python 2.7, pdfjam, pdfcrop and their dependencies.
+    python 3.6, pdfjam, pdfcrop and their dependencies.
     
 EXAMPLES
 
@@ -114,6 +114,11 @@ OPTIONS
                 Resolution used by ghostscript in bp (default: 72)
 
 CHANGELOG
+
+    1.4 2020/01/20
+    
+        -   migration to Python 3
+        -   fixed bug if the input document had only one page
 
     1.3 2019/08/12
 
