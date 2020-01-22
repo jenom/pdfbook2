@@ -16,12 +16,11 @@
     """
 
 
-import sys
-import subprocess
 import os
-from optparse import OptionParser, OptionGroup, HelpFormatter
 import shutil
-
+import subprocess
+import sys
+from optparse import HelpFormatter, OptionGroup, OptionParser
 
 #===============================================================================
 # Create booklet for file $name
