@@ -118,15 +118,19 @@ def booklify(name, opts):
     sys.stdout.flush()
     pdfJamCallList = [
         "pdfjam",
-        "--booklet",
-        "true",
         "--landscape",
         "--suffix",
         "book",
-        "--signature",
-        repr(opts.signature),
         tmpFile,
     ]
+
+    # add option signature if it is defined else booklet
+    if opts.signature != 0:
+        pdfJamCallList.append("--signature")
+        pdfJamCallList.append(repr(opts.signature))
+    else:
+        pdfJamCallList.append("--booklet")
+        pdfJamCallList.append("true")
 
     # add option --paper to call
     if opts.paper is not None:
@@ -277,7 +281,7 @@ if __name__ == "__main__":
         type="int",
         help="Define the signature for the booklet handed to pdfjam, needs to be multiple of 4"
         + defaultString,
-        default=4,
+        default=0,
         metavar="INT",
     )
     advancedGroup.add_option(

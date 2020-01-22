@@ -118,6 +118,7 @@
     
         -   migration to Python 3
         -   fixed bug if the input document had only one page
+        -   fix for signature option not working
 
     1.3 2019/08/12
 
