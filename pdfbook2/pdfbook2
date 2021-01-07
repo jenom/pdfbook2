@@ -137,6 +137,11 @@ def booklify(name, opts):
         pdfJamCallList.append("--paper")
         pdfJamCallList.append(opts.paper)
 
+    # add option --papersize to call
+    if opts.papersize is not None:
+        pdfJamCallList.append("--papersize")
+        pdfJamCallList.append(opts.papersize)
+
     # add option --short-edge to call
     if opts.shortedge:
         # check if everyshi.sty exists as texlive recommends
@@ -211,6 +216,15 @@ if __name__ == "__main__":
         action="store",
         metavar="STR",
         help="Format of the output paper dimensions as latex keyword (e.g. a4paper, letterpaper, legalpaper, ...)",
+    )
+    generalGroup.add_option(
+        "--papersize",
+        dest="papersize",
+        type="str",
+        action="store",
+        metavar="STR",
+        help="""Format of the output paper dimensions as string eg. '{5in,10in}'. (Note the braces, and the comma!).
+        Option has no effect if 'geometry' not installed.""",
     )
     generalGroup.add_option(
         "-s",

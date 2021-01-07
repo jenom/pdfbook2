@@ -86,6 +86,9 @@ OPTIONS
         --paper=STR, -p STR
                 Format of the output paper dimensions as latex keyword (e.g.
                 a4paper, letterpaper, legalpaper, ...)
+	--papersize=STR
+		Format of the output paper dimensions as string eg. '{5in,10in}' (Note the braces, and the comma!).
+        	Option has no effect if 'geometry' not installed.
         --short-edge, -s
                 Format the booklet for short-edge double-sided printing
         --no-crop, -n
