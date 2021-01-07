@@ -63,7 +63,11 @@
     for standard A4. To increase the inner margin for binding use
     
         pdfbook2 --inner-margin=200 input.pdf
+    
+    for custom paper size (eg. 5x10 inch) use 
         
+	pdfbook2 --papersize='{5in,10in}' input.pdf
+
     to increase the default value of 150. You can submit multiple files to the 
     script for processing like
         
@@ -85,6 +89,9 @@
         --paper=STR, -p STR
                 Format of the output paper dimensions as latex keyword (e.g.
                 a4paper, letterpaper, legalpaper, ...)
+	--papersize=STR
+		Format of the output paper dimensions as string eg. '{5in,10in}'. (Note the braces, and the comma!).
+        	Option has no effect if 'geometry' not installed.
         --short-edge, -s
                 Format the booklet for short-edge double-sided printing
         --no-crop, -n
