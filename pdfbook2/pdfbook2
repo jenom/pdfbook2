@@ -63,8 +63,8 @@ def booklify(name, opts):
         else:
             minLEven = minLOdd
             maxREven = maxROdd
-        minT = min([bound[1] for bound in bounds])
-        maxB = max([bound[3] for bound in bounds])
+        minB = min([bound[1] for bound in bounds])
+        maxT = max([bound[3] for bound in bounds])
 
         widthOdd = maxROdd - minLOdd
         widthEven = maxREven - minLEven
@@ -82,18 +82,18 @@ def booklify(name, opts):
             [
                 "pdfcrop",
                 "--bbox-odd",
-                "{L} {T} {R} {B}".format(
+                "{L} {B} {R} {T}".format(
                     L=minLOdd - opts.innerMargin / 2,
-                    T=minT - opts.topMargin,
+                    B=minB - opts.bottomMargin,
                     R=maxROdd + opts.outerMargin,
-                    B=maxB + opts.outerMargin,
+                    T=maxT + opts.topMargin,
                 ),
                 "--bbox-even",
-                "{L} {T} {R} {B}".format(
+                "{L} {B} {R} {T}".format(
                     L=minLEven - opts.outerMargin,
-                    T=minT - opts.topMargin,
+                    B=minB - opts.bottomMargin,
                     R=maxREven + opts.innerMargin / 2,
-                    B=maxB + opts.outerMargin,
+                    T=maxT + opts.topMargin,
                 ),
                 "--resolution",
                 repr(opts.resolution),
