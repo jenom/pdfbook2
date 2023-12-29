@@ -157,10 +157,18 @@ def booklify(name, opts):
     p = subprocess.Popen(pdfJamCallList, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
 
-    # -------------------------------------------- move file and remove temp file
-    os.rename(tmpFile[:-4] + "-book.pdf", name[:-4] + "-book.pdf")
+    # check if the output file was created
+    tmpFileBook = tmpFile[:-4] + "-book.pdf"
+    if os.path.exists(tmpFileBook):
+        # -------------------------------------------- move file
+        os.rename(tmpFile[:-4] + "-book.pdf", name[:-4] + "-book.pdf")
+        print("done")
+    else:
+        print("\n\npdfjam did not create the output file")
+        print(err.decode("utf-8"))
+
+    # -------------------------------------------- remove temp file
     os.remove(tmpFile)
-    print("done")
     sys.stdout.flush()
 
 
